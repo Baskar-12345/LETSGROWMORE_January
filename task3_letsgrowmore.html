@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Enrollment Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      width: 40%;
+      padding: 20px;
+    }
+
+    .enrolled-students {
+      width: 55%;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333333;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .student-details {
+      margin-bottom: 15px;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Student Enrollment Form</h1>
+
+  <div class="container">
+    <form id="enrollmentForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="website">Website:</label>
+      <input type="text" id="website" name="website">
+
+      <label for="imageLink">Image Link:</label>
+      <input type="text" id="imageLink" name="imageLink">
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label>Skills:</label>
+      <div style="display: flex; gap: 10px;">
+        <input type="checkbox" id="java" name="skills" value="java">
+        <label for="java">Java</label>
+
+        <input type="checkbox" id="html" name="skills" value="html">
+        <label for="html">HTML</label>
+
+        <input type="checkbox" id="css" name="skills" value="css">
+        <label for="css">CSS</label>
+      </div>
+
+      <button type="button" onclick="enrollStudent()">Enroll Student</button>
+    </form>
+
+    <div class="enrolled-students" id="enrolledStudents">
+      <h2>Enrolled Students</h2>
+      <!-- Student details will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    function enrollStudent() {
+      var form = document.getElementById('enrollmentForm');
+      var enrolledStudentsDiv = document.getElementById('enrolledStudents');
+      var studentDetails = '';
+
+      // Create student details string
+      studentDetails += '<div class="student-details">';
+      studentDetails += '<h3>' + form.name.value + '</h3>';
+      studentDetails += '<p>Email: ' + form.email.value + '</p>';
+      studentDetails += '<p>Website: ' + form.website.value + '</p>';
+      studentDetails += '<img src="' + form.imageLink.value + '" alt="Student Image">';
+      studentDetails += '<p>Gender: ' + form.gender.value + '</p>';
+      studentDetails += '<p>Skills: ' + Array.from(form.skills).filter(skill => skill.checked).map(skill => skill.value).join(', ') + '</p>';
+      studentDetails += '</div>';
+
+      // Append student details to the enrolled students div
+      enrolledStudentsDiv.innerHTML += studentDetails;
+
+      // Reset the form
+      form.reset();
+    }
+  </script>
+
+</body>
+</html>
