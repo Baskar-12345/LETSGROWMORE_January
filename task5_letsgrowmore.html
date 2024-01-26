@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Student Result Management System</h1>
+    <form id="resultForm">
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" required>
+        
+        <label for="subject">Subject 1:</label>
+        <input type="text" id="subject" required>
+        
+        <label for="marks">Marks 1:</label>
+        <input type="number" id="marks" required>
+
+        <label for="subject2">Subject 2:</label>
+        <input type="text" id="subject2" required>
+
+        <label for="marks2">Marks 2:</label>
+        <input type="number" id="marks2" required>
+
+        <label for="subject3">Subject 3:</label>
+        <input type="text" id="subject3" required>
+
+        <label for="marks3">Marks 3:</label>
+        <input type="number" id="marks3" required>
+        
+        <button type="button" onclick="addResult()">Add Result</button>
+    </form>
+
+    <div id="resultTable">
+        <h2>Results</h2>
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Subject 1</th>
+                <th>Marks 1</th>
+                <th>Subject 2</th>
+                <th>Marks 2</th>
+                <th>Subject 3</th>
+                <th>Marks 3</th>
+                <th>Percentage</th>
+                <th>Grade</th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    form {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+    
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+    }
+    
+    button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+    
+    th {
+        background-color: #4caf50;
+        color: #fff;
+    }
+    
+</style>
